@@ -50,7 +50,11 @@ var swaggerUIHTML = `<!DOCTYPE html>
         plugins: [
           SwaggerUIBundle.plugins.DownloadUrl
         ],
-        layout: "StandaloneLayout"
+        layout: "StandaloneLayout",
+        requestInterceptor: (req) => {
+          req.credentials = "include";
+          return req;
+        }
       });
       // End Swagger UI call region
 
